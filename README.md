@@ -1,2 +1,0 @@
-# MedSora
-comming soon
