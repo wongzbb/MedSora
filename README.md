@@ -4,7 +4,7 @@
   [Zhenbin Wang](https://github.com/wongzbb), Lei Zhang<sup>✉</sup>, [Lituan Wang](https://github.com/LTWangSCU), [Minjuan Zhu](https://github.com/zhuminjuan), [Zhenwei Zhang](https://github.com/Zhangzw-99) 
   
   </br>
-  [![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)]()
+  [![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://github.com/wongzbb)
   </br>
 </div>
 
