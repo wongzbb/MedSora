@@ -11,3 +11,4 @@ results/
 result_sample/
 wandb/
 __pycache__/
+datasets/

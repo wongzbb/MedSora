@@ -4,7 +4,6 @@
   [Zhenbin Wang](https://github.com/wongzbb), Lei Zhang<sup>✉</sup>, [Lituan Wang](https://github.com/LTWangSCU), Minjuan Zhu, [Zhenwei Zhang](https://github.com/Zhangzw-99) 
   
   </br>
-  
   [![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)]()
   </br>
 </div>
@@ -31,6 +30,9 @@ wget https://github.com/Dao-AILab/causal-conv1d/releases/download/v1.4.0/causal_
 wget https://github.com/state-spaces/mamba/releases/download/v2.2.2/mamba_ssm-2.2.2+cu118torch2.0cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 pip install causal_conv1d-1.4.0+cu118torch2.0cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 pip install mamba_ssm-2.2.2+cu118torch2.0cxx11abiFALSE-cp311-cp311-linux_x86_64.whl && cd ..
+
+pip install triton==3.0.0
+which ptxas  # will output your_ptxas_path
 
 # for Chinese, you may need
 export HF_ENDPOINT=https://hf-mirror.com
