@@ -56,4 +56,14 @@ huggingface-cli download --repo-type dataset --resume-download ZhenbinWang/Kvasi
 ## 🎇 Sampling
 
 
-## ⏳ Training
+## ⏳ Training Frequency Compensation Video VAE
+Train VAE with the resolution of 128x128 with `2` GPUs on the Colonoscopic dataset
+```bash
+CUDA_VISIBLE_DEVICES=0,1 torchrun --master_port=12345 --nnodes=1 --nproc_per_node=2 train_vae.py --config configs/col/col_train.yaml
+```
+Or run training VAE with scripts in [`./scripts`](./scripts/)
+```bash
+bash scripts/train_vae_col.sh
+bash scripts/train_vae_cho.sh
+bash scripts/train_vae_kva.sh
+```

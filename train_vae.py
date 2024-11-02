@@ -139,12 +139,12 @@ def main(config, args):
 
     for param in vae.parameters():
         param.requires_grad = False
-    # for param in vae.encoder.frequency_compensation.parameters():
-    #     param.requires_grad = True
-    # for param in vae.decoder.frequency_compensation.parameters():
-    #     param.requires_grad = True
-    # for param in vae.decoder.up_freq_compensations.parameters():
-    #     param.requires_grad = True
+    for param in vae.encoder.frequency_compensation.parameters():
+        param.requires_grad = True
+    for param in vae.decoder.frequency_compensation.parameters():
+        param.requires_grad = True
+    for param in vae.decoder.up_freq_compensations.parameters():
+        param.requires_grad = True
 
     g_params = list(vae.encoder.frequency_compensation.parameters()) + list(vae.decoder.frequency_compensation.parameters()) + \
                 list(vae.decoder.up_freq_compensations.parameters())
