@@ -1,0 +1,67 @@
+dataset: "cho_img"
+
+use_compile: True
+enable_xformers_memory_efficient_attention: True
+gradient_checkpointing: True
+use_magic: False 
+SophiaG: False
+lr: 1e-5
+weight_decay: 0
+
+use_margin: False
+margin: 0.015
+
+adjacency_weight: True
+
+space_encoder_ckpt: "pretrain_space_encoder/w19_cho_space_encoder.pt"
+
+# model: "DiM-B/2"
+# use_attention: False
+use_covariance: False  # to compute cov
+balance_alpha: 0.1
+
+use_local_attention: True  # to use cross attention after mamba 
+load_ckpt_type: "ema"
+
+use_wt: True
+wt_margin: 0.005
+
+global_seed: 25126
+accumulation_steps: 1   #or 10
+log_every: 10
+ckpt_every_encoder: 10_000
+
+image_size: 128
+ckpt_every: 10_000
+num_workers: 8
+dt_rank: 16 
+d_state: 16
+use_image_num: 8  
+frame_interval: 3
+num_frames: 16
+frame_num_in_video: 24
+
+results_dir: "results/cho"
+frame_data_txt: "datasets/CholecTriplet_list.txt"
+frame_data_path: "."
+data_path: "datasets/CholecTriplet"
+
+#load from pre-train
+init_from_pretrain_ckpt: False
+pretrain_ckpt_path: "results/cho/149-DiM-B-2/checkpoints/0500000.pt"
+init_train_steps: 500_000
+
+
+#sample
+num_sampling_steps: 250
+test_data_path: "datasets/CholecTriplet"
+sample_global_seed: 0
+sample_num_workers: 4
+create_video_num: 30  #for noise2video
+sample_method: "ddim"  #ddim, ddpm
+save_video_path: "./sample_results/cho"
+
+
+pretrain_alpha: 1.0
+frame_K: 4
+pretrain_lambda_param: 0.1
