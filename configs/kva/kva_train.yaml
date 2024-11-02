@@ -78,6 +78,9 @@ vae_lpips_weight: 0.1
 #load from pre-train-vae
 vae_init_from_pretrain_ckpt: False
 vae_pretrain_ckpt_path:  "" 
+vae_sample_batch_size: 1
+vae_test_ckpt: ""
+
 
 # flow model
 flow_model_path: "flow_models/raft-things.pth"
