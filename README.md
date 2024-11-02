@@ -68,7 +68,7 @@ bash scripts/train_vae_cho.sh
 bash scripts/train_vae_kva.sh
 ```
 
-## ⏳ Test Frequency Compensation Video VAE
+## ✨ Test Frequency Compensation Video VAE
 Test VAE on the Colonoscopic dataset
 ```bash
 CUDA_VISIBLE_DEVICES=0 torchrun --master_port=12345 --nnodes=1 --nproc_per_node=1 test_vae.py --config configs/col/col_train.yaml
