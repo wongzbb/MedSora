@@ -10,7 +10,7 @@
 
 -------------------------------------------
 ![introduction](assets/medsora.jpg)
-![introduction](assets/spair.jpg)
+<!-- ![introduction](assets/spair.jpg) -->
 
 ## 🛠 Setup
 
