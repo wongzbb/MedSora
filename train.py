@@ -1,5 +1,5 @@
 """
-A minimal training script for DiM using PyTorch DDP.
+A minimal training script for MedSora using PyTorch DDP.
 """
 import torch
 # the first flag below was False when we tested this script but True makes A100 training a lot faster:
@@ -18,28 +18,18 @@ import argparse
 from loguru import logger
 import os
 import wandb
-
-from models import vits
+from models import vit_small
 from diffusion import create_diffusion
-
 from autoencoders import AutoencoderKLCogVideoX as VAE
-
 from load_data import get_dataset
 from torch.cuda.amp import GradScaler, autocast
 from einops import rearrange
 from omegaconf import OmegaConf
-import math
 from tools import SophiaG
-
 from models import RAFT
 from models import InputPadder
 from models import flow_to_image
-
-from model3 import MedSora_models
-
-# from autoencoders import LPIPS
-
-# torch._dynamo.config.suppress_errors = True
+from models import MedSora_models
 
 #################################################################################
 #                             Training Helper Functions                         #
@@ -113,7 +103,7 @@ def get_layer_outputs(model, layer_names, input_tensor):
     return outputs
 
 def load_dino_model(device, pretrained_path):
-    model = vits.__dict__["vit_small"](
+    model = vit_small(
             patch_size=8, num_classes=0
         )
     for p in model.parameters():
@@ -122,7 +112,6 @@ def load_dino_model(device, pretrained_path):
     model.to(device)
     state_dict = torch.load(pretrained_path, map_location="cpu")
     state_dict = {k.replace("module.", ""): v for k, v in state_dict.items()}
-    # remove `backbone.` prefix induced by multicrop wrapper
     state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
     msg = model.load_state_dict(state_dict, strict=False)
     print(
@@ -187,7 +176,6 @@ def clip_grad_norm_(
 #################################################################################
 
 def main(config, args):
-
     dist.init_process_group("nccl")
     rank = dist.get_rank()
     assert torch.cuda.is_available(), "Training currently requires at least one GPU."
@@ -203,7 +191,7 @@ def main(config, args):
     if rank == 0:
         os.makedirs(config.results_dir, exist_ok=True)  # Make results folder (holds all experiment subfolders)
         experiment_index = len(glob(f"{config.results_dir}/*"))
-        model_string_name = args.model.replace("/", "-")  # e.g., DiM-XL/2 --> DiM-XL-2 (for naming folders)
+        model_string_name = args.model.replace("/", "-")  
 
         experiment_dir = f"{config.results_dir}/{experiment_index:03d}-{model_string_name}"  # Create an experiment folder
         checkpoint_dir = f"{experiment_dir}/checkpoints"  # Stores saved model checkpoints
@@ -212,7 +200,6 @@ def main(config, args):
 
         if args.wandb:
             wandb.init(project='MedSora_'+args.model.replace('/','_'))
-            # wandb.init(project=args.model.replace('/','_'), id='ylhfep72', resume='must')   # load the previous run
             wandb.config = {"learning_rate": config.lr, 
                             "epochs": args.epochs, 
                             "batch_size": args.global_batch_size,
@@ -239,12 +226,9 @@ def main(config, args):
         input_size=latent_size,
         dt_rank=config.dt_rank,
         d_state=config.d_state,
-        # num_frames=config.num_frames,
         use_image_num = config.use_image_num,
         use_covariance=config.use_covariance,
-        # what2Video=args.what2video,
         use_local_attention=config.use_local_attention,
-        use_mamba2=args.use_mamba2,
         use_local_cov=args.use_local_cov,
     )
 
@@ -268,15 +252,10 @@ def main(config, args):
     if config.use_compile:
         model = torch.compile(model)
 
-
     diffusion = create_diffusion(timestep_respacing="")  # default: 1000 steps, linear noise schedule, see ./diffusion/__init__.py
 
-    # vae =  AutoencoderKLCogVideoX.from_pretrained(f"THUDM/CogVideoX-2b").to(device)
-    # vae = AutoencoderKLCogVideoX.from_pretrained("THUDM/CogVideoX-2b", subfolder="vae").to(device)
-    # vae.requires_grad_(False)  # Freeze vae and text_encoder
-
     vae = VAE().to(device)
-    pretrain_vae_state_dict = find_model_model(config.pretrain_vae)
+    pretrain_vae_state_dict = find_model_model(config.vae_weight_path)
     vae.load_state_dict(pretrain_vae_state_dict)
     vae.eval()
 
@@ -358,8 +337,7 @@ def main(config, args):
             batch_size = x.shape[0]
 
             img = rearrange(x, 'b f c h w -> (b f) c h w').contiguous()   #B*24,3,128,128
-            # if args.what2video == "I2V":
-            #     y_img = x[:,config.use_image_num,:,:,:]  #[B, 3, 128, 128]
+
             patch_size = 8
             w, h = (
                 img.shape[-2] - img.shape[-2] % patch_size,
@@ -377,7 +355,6 @@ def main(config, args):
 
             
             with torch.no_grad():
-                # flow_tensor_low_list = []
                 flow_tensor_up_list = []
 
                 for i1, i2 in zip(x[:,:config.num_frames-1,:,:,:], x[:,1:config.num_frames,:,:,:]):
@@ -385,7 +362,6 @@ def main(config, args):
                     i1, i2 = padder.pad(i1, i2)
                     _, flow_up = flow_model(i1, i2, iters=20, test_mode=True)
                     f = flow_up.shape[0]
-                    # flow_low_f = []
                     flow_up_f = []
 
                     for i in range(f):
@@ -396,51 +372,27 @@ def main(config, args):
                     flow_up = torch.as_tensor(flow_up_np).permute(0,3,1,2).to(device)
                     flow_tensor_up_list.append(flow_up)
 
-                # flow_tensor_low = torch.stack(flow_tensor_low_list)
                 flow_tensor_up = torch.stack(flow_tensor_up_list)
-
-            # flow_tensor_low = rearrange(flow_tensor_low, 'b f c h w -> b c f h w').contiguous()
 
             x_video = rearrange(x[:,:config.num_frames-1,:,:,:], 'b f c h w -> b c f h w').contiguous()
             with torch.no_grad(): 
                 x_video = vae.encode(x_video).latent_dist.sample().mul_(1.15258426)
             x_video = rearrange(x_video, 'b c f h w -> b f c h w').contiguous()
-            # print(f'x_video.shape: {x_video.shape}') # torch.Size([16, 4, 16, 16, 16])
 
             x_image = rearrange(x[:,config.num_frames:,:,:,:], 'b f c h w -> b c f h w').contiguous()
             with torch.no_grad(): 
                 x_image = vae.encode(x_image).latent_dist.sample().mul_(1.15258426)
             x_image = rearrange(x_image, 'b c f h w -> b f c h w').contiguous()
-            # print(f'x_image.shape: {x_image.shape}') # torch.Size([16, 2, 16, 16, 16])
 
             x = torch.cat((x_video, x_image), dim=1)
-            # print(f'x.shape: {x.shape}') # torch.Size([16, 6, 16, 16, 16])
 
             flow_tensor_up = rearrange(flow_tensor_up, 'b f c h w -> (b f) c h w').contiguous()
             with torch.no_grad(): 
                 layer_output = dino_model.get_special_layers(flow_tensor_up.float(), [])
-                # print(f'layer_output[0].shape: {layer_output[0].shape}') #32 257 384
 
             batch_size = x.shape[0]
             layer_output = [rearrange(item[:, 1:, :], '(b f) l d -> b f l d', b=batch_size).contiguous() for item in layer_output]
 
-            #down_sample attention
-            # b, f, c, _, _ = x.shape
-            # for item in layer_output:
-            #     item = item[:, 1:, :]
-            #     item = rearrange(item, 'bf l d -> bf (l d)').contiguous()
-            #     item = rearrange(item, '(b f) (l d) -> b f 3 256 128').contiguous()
-            #     print(f'item.shape: {item.shape}') #32 16 3 256 128
-
-            #'We only complete Noise2Video and Image2Video, Text2Video training are Not supported at this moment!'
-            # if args.what2video == "I2V":
-            #     with torch.no_grad():
-            #         y = vae.encode(y_img).latent_dist.sample().mul_(0.18215)
-            #     y = rearrange(y, 'yb yc yh yw -> yb (yc yh yw)', yb=b).contiguous()  #[B, DD]
-            # else:
-            #     y = None
-
-            # model_kwargs = dict(y=y, frame_space=layer_output, what2video=args.what2video)
             model_kwargs = dict(frame_space=layer_output)
             t = torch.randint(0, diffusion.num_timesteps, (x.shape[0],), device=device)
 
@@ -546,7 +498,7 @@ def main(config, args):
                 log_steps = 0
                 start_time = time()
 
-            # Save DiM checkpoint:
+            # Save MedSora checkpoint:
             if train_steps % config.ckpt_every == 0 and train_steps > 0:
                 if rank == 0:
                     checkpoint = {
@@ -569,29 +521,18 @@ def main(config, args):
         wandb.finish()
     cleanup()
 
-
-
-            
-
-
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str, choices=list(MedSora_models.keys()), default="MedSora-B/2")
+    parser.add_argument("--model", type=str, choices=list(MedSora_models.keys()), default="MedSora-B")
     parser.add_argument("--epochs", type=int, default=300)
     parser.add_argument("--global-batch-size", type=int, default=1)
     parser.add_argument("--vae", type=str, choices=["ema", "mse"], default="ema") 
     parser.add_argument("--wandb", action="store_true", help="Enable WandB.")
     parser.add_argument("--autocast", action="store_true", help="Whether to use half-precision training.")
-    # parser.add_argument("--what2video", choices=["N2V", "I2V", "T2V"],type=str, default="N2V")
     parser.add_argument("--use-local-cov", action="store_true", help="Use the local covariance to guide training")
-    parser.add_argument("--use-mamba2", action="store_true", help="Use the ours ssm with selective is official")
-    parser.add_argument("--config", type=str, default="")
-
-    parser.add_argument('--small', action='store_true', help='use small model')
+    parser.add_argument('--small', action='store_true', help='use small raft model')
     parser.add_argument('--mixed_precision', action='store_true', help='use mixed precision')
-    parser.add_argument('--alternate_corr', action='store_true', help='use efficent correlation implementation')
+    parser.add_argument("--config", type=str, default="")
 
     args = parser.parse_args()
     main(OmegaConf.load(args.config), args)

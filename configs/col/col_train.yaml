@@ -14,19 +14,13 @@ margin: 0.010
 
 use_clip_norm: True
 clip_max_norm: 1.0
-start_clip_epoch: 0
+start_clip_epoch: 25
 
 adjacency_weight: Ture  #for train space encoder
 
-# space_encoder_ckpt: "pretrain_space_encoder/w20_col_space_encoder.pt"
-space_encoder_ckpt: "pretrain_space_encoder/col_619.pt"
-
-# model: "DiM-B/2"
-# use_attention: False
 use_covariance: True  # to compute cov
 balance_alpha: 0.1
 use_local_attention: True  # to use cross attention after mamba 
-
 
 global_seed: 25126
 accumulation_steps: 1   #or 10
@@ -35,7 +29,7 @@ ckpt_every_encoder: 20_000
 
 image_size: 128
 ckpt_every: 20_000
-num_workers: 1 #16
+num_workers: 16 #16
 dt_rank: 16 
 d_state: 128
 use_image_num: 8  
@@ -59,23 +53,17 @@ init_train_steps: 760_000
 
 #sample
 load_ckpt_type: "ema"  #model, ema
-num_sampling_steps: 50
+num_sampling_steps: 250
 test_data_path: "datasets/Colonoscopic"
 sample_global_seed: 25127
 sample_num_workers: 4
 create_video_num: 2048  #for noise2video
 sample_method: "ddim"  #ddim, ddpm
-save_video_path: "./sample_results/col_mamba_ddim"
+save_video_path: "./sample_results/col_sample"
 
 pretrain_alpha: 1.0
 frame_K: 4
 pretrain_lambda_param: 1
-
-
-#OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=1,2 TRITON_PTXAS_PATH=/opt/conda/envs/Di/bin/ptxas  torchrun --master_port=12045 --nnodes=1 --nproc_per_node=2 train.py --model DiM-XL/2 --epoch 300 --global-batch-size 6 --what2video N2V --config config/col/col_train.yaml --use-mamba2
-
-
-#CUDA_VISIBLE_DEVICES=0 TRITON_PTXAS_PATH=/opt/conda/envs/DiffMaSora/bin/ptxas torchrun --master_port=12749 --nnodes=1 --nproc_per_node=1 sample.py --model DiM-XL/2  --sample-global-batch-size 1 --what2video N2V --config config/col/col_train.yaml --use-mamba2 --ckpt results/col/068-DiM-XL-2/checkpoints/0080000.pt
 
 
 
@@ -91,13 +79,15 @@ vae_lpips_weight: 0.1
 #load from pre-train-vae
 vae_init_from_pretrain_ckpt: False
 vae_pretrain_ckpt_path:  "" 
+
 vae_sample_batch_size: 1
 vae_test_ckpt: "/root/code/MedSora/results/vae/col/150-vae/checkpoints/008.pt"
 
 
 # flow model
-flow_model_path: "flow_models/raft-things.pth"
-
+flow_model_path: "/root/code/MedSora/flow_models/raft-things.pth"
 # DINO model
 # dino_model_type: "dinov2_vitb14"  #dinov2_vits14, dinov2_vitb14, dinov2_vitl14, dinov2_vitg14
-dino_weights_path: "dino_model/dino_vitbase8_pretrain_full_checkpoint.pth"  #dino_vits16, dino_vits8, dino_vitb16, dino_vitb8, dino_resnet50
+dino_weights_path: "/root/code/MedSora/dino_model/dino_vitbase8_pretrain_full_checkpoint.pth"  #dino_vits16, dino_vits8, dino_vitb16, dino_vitb8, dino_resnet50
+# frequency compensation video vae
+vae_weight_path: "/root/code/MedSora/results/vae/col/150-vae/checkpoints/008.pt"

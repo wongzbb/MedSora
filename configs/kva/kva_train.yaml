@@ -17,8 +17,6 @@ start_clip_epoch: 25
 
 adjacency_weight: Ture  #for train space encoder
 
-space_encoder_ckpt: ""
-
 use_covariance: True  # to compute cov
 balance_alpha: 0.1
 use_local_attention: True  # to use cross attention after mamba 
@@ -29,7 +27,7 @@ log_every: 10
 ckpt_every_encoder: 20_000
 
 image_size: 128
-ckpt_every: 10_000
+ckpt_every: 20_000
 num_workers: 16
 dt_rank: 16 
 d_state: 128
@@ -42,25 +40,25 @@ use_wt: True
 wt_margin: 0.01
 
 results_dir: "results/kva"
-frame_data_txt: "datasets/Kvasir_Capsule_list.txt"
-frame_data_path: "."
-data_path: "datasets/Kvasir_Capsule"
+frame_data_txt: "/root/code/MedSora/datasets/Kvasir_Capsule_list.txt"
+frame_data_path: "/root/code/MedSora/"
+data_path: "/root/code/MedSora/datasets/Kvasir_Capsule"
 
 #load from pre-train
-init_from_pretrain_ckpt: True
+init_from_pretrain_ckpt: False
 pretrain_ckpt_path: "results/kva/009-MedSora-B-2/checkpoints/0040000.pt"
 init_train_steps: 40_000
 
 
 #sample
-load_ckpt_type: "model"
+load_ckpt_type: "ema"
 num_sampling_steps: 250
 test_data_path: "datasets/Kvasir_Capsule"
 sample_global_seed: 25127
 sample_num_workers: 4
 create_video_num: 2048  #for noise2video
 sample_method: "ddim"  #ddim, ddpm
-save_video_path: "./sample_results/kva_mamba_0.01"
+save_video_path: "./sample_results/kva_sample"
 
 pretrain_alpha: 1.0
 frame_K: 4
@@ -83,9 +81,9 @@ vae_test_ckpt: ""
 
 
 # flow model
-flow_model_path: "flow_models/raft-things.pth"
-
+flow_model_path: "/root/code/MedSora/flow_models/raft-things.pth"
 # DINO model
-dino_weights_path: "dino_model/dino_vitbase8_pretrain_full_checkpoint.pth"  
-
-##CUDA_VISIBLE_DEVICES=1 TRITON_PTXAS_PATH=/opt/conda/envs/newSora/bin/ptxas torchrun --master_port=12475 --nnodes=1 --nproc_per_node=1 test_flow_2.py --model MedSora-B/2 --global-batch-size 1 --config config/cho/cho_train.yaml  --use-mamba2 --use-local-cov
+# dino_model_type: "dinov2_vitb14"  #dinov2_vits14, dinov2_vitb14, dinov2_vitl14, dinov2_vitg14
+dino_weights_path: "/root/code/MedSora/dino_model/dino_vitbase8_pretrain_full_checkpoint.pth"  #dino_vits16, dino_vits8, dino_vitb16, dino_vitb8, dino_resnet50
+# frequency compensation video vae
+vae_weight_path: "/root/code/MedSora/results/vae/col/150-vae/checkpoints/008.pt"
