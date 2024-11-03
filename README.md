@@ -83,7 +83,19 @@ bash scripts/test_vae_kva.sh
 ## ⏳ Training MedSora
 Train MedSora with the resolution of 128x128 with `2` GPUs on the Colonoscopic dataset
 ```bash
-OMP_NUM_THREADS=4 CUDA_VISIBLE_DEVICES=1,3 TRITON_PTXAS_PATH=/opt/conda/envs/test_sora/bin/ptxas  torchrun --master_port=12045 --nnodes=1 --nproc_per_node=2 train.py --model MedSora-B --epoch 300 --global-batch-size 1 --config configs/col/col_train.yaml --use-local-cov
+OMP_NUM_THREADS=4 \
+CUDA_VISIBLE_DEVICES=1,3 \
+TRITON_PTXAS_PATH=/opt/conda/envs/test_sora/bin/ptxas \
+torchrun \
+  --master_port=12045 \
+  --nnodes=1 \
+  --nproc_per_node=2 \
+train.py \
+  --model MedSora-B \
+  --epoch 300 \
+  --global-batch-size 1 \
+  --config configs/col/col_train.yaml \
+  --use-local-cov
 ```
 Or run training VAE with scripts in [`./scripts`](./scripts/)
 ```bash
