@@ -9,7 +9,8 @@
 </div>
 
 -------------------------------------------
-![introduction](assets/medsora.pdf)
+![introduction](assets/medsora.jpg)
+![introduction](assets/spair.jpg)
 
 ## 🛠 Setup
 
