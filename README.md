@@ -9,7 +9,7 @@
 </div>
 
 -------------------------------------------
-![introduction](assets/frame.jpg)
+![introduction](assets/medsora.pdf)
 
 ## 🛠 Setup
 
