@@ -57,7 +57,7 @@ huggingface-cli download --repo-type dataset --resume-download ZhenbinWang/Kvasi
 
 
 ## ⏳ Training Frequency Compensation Video VAE
-Train VAE with the resolution of 128x128 with `1` GPUs on the Colonoscopic dataset
+Run [`train_vae.py`](train_vae.py) with the resolution of 128x128 with `1` GPUs on the Colonoscopic dataset
 ```bash
 CUDA_VISIBLE_DEVICES=0 \
 torchrun \
@@ -75,7 +75,7 @@ bash scripts/train_vae_kva.sh
 ```
 
 ## ✨ Test Frequency Compensation Video VAE
-Test VAE on the Colonoscopic dataset
+Run [`test_vae.py`](test_vae.py) on the Colonoscopic dataset
 ```bash
 CUDA_VISIBLE_DEVICES=0 \
 torchrun \
@@ -93,7 +93,7 @@ bash scripts/test_vae_kva.sh
 ```
 
 ## ⏳ Training MedSora
-Train MedSora with the resolution of 128x128 with `2` GPUs on the Colonoscopic dataset
+Run [`train.py`](train.py) with the resolution of 128x128 with `2` GPUs on the Colonoscopic dataset
 ```bash
 OMP_NUM_THREADS=4 \
 CUDA_VISIBLE_DEVICES=1,3 \
@@ -109,9 +109,31 @@ train.py \
   --config configs/col/col_train.yaml \
   --use-local-cov
 ```
-Or run training VAE with scripts in [`./scripts`](./scripts/)
+Or run training MedSora with scripts in [`./scripts`](./scripts/)
 ```bash
 bash scripts/train_medsora_col.sh
 bash scripts/train_medsora_cho.sh
 bash scripts/train_medsora_kva.sh
+```
+
+## ✨ Sampling MedSora
+Run [`sample.py`](sample.py) by the following scripts.
+```bash
+CUDA_VISIBLE_DEVICES=0 \
+TRITON_PTXAS_PATH=path_to_your_ptxas \
+torchrun \
+  --master_port=12345 \
+  --nnodes=1 \
+  --nproc_per_node=1 \
+sample.py \
+  --model MedSora-B \
+  --config configs/col/col_train.yaml \
+  --ckpt path_to_your_checkpoint \
+  --use-local-cov
+```
+Or run sampling MedSora with scripts in [`./scripts`](./scripts/)
+```bash
+bash scripts/sample_medsora_col.sh
+bash scripts/sample_medsora_cho.sh
+bash scripts/sample_medsora_cho.sh
 ```

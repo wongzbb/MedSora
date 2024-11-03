@@ -8,7 +8,7 @@
 *.whl
 whl/
 results/
-result_sample/
+sample_results/
 wandb/
 __pycache__/
 datasets/
