@@ -143,4 +143,4 @@ bash scripts/sample_medsora_cho.sh
 - [X] Clean up the code for MedSora
 - [ ] Upload the code for calculating the metrics.
 - [ ] Upload the codes for training compared methods.
-- [ ] Upload the ckpt (will upload after publication).
+- [ ] Upload the ckpt (after publication).
