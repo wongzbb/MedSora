@@ -55,8 +55,6 @@ huggingface-cli download --repo-type dataset --resume-download ZhenbinWang/Colon
 huggingface-cli download --repo-type dataset --resume-download ZhenbinWang/Kvasir_Capsule_processed --local-dir ./datasets/Kvasir_Capsule_processed/
 ```
 
-## 🎇 Sampling
-
 
 ## ⏳ Training Frequency Compensation Video VAE
 Run [`train_vae.py`](train_vae.py) with the resolution of 128x128 with `1` GPUs on the Colonoscopic dataset
