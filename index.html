@@ -24,8 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>MedSora: Optical Flow Representation Alignment Mamba Diffusion Model for Medical Video Generation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/dora.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -46,34 +46,48 @@
 </head>
 <body>
 
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title"><span style="color: red;">MedSora</span>: Optical Flow Representation Alignment Mamba Diffusion Model for Medical Video Generation</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+              <span class="author-block"><a target="_blank">Zhenbin Wang</a>,</span><span class="author-block"></span>
+              <span class="word-with-icon"><a href="" target="_blank">Lei Zhang</a><i class="fas fa-envelope fa-sm"></i></span><sup></sup>,
+              <span class="author-block"><a target="_blank">Lituan Wang</a>,</span>
+              <span class="author-block"><a target="_blank">Minjuan Zhu</a>,</span>
+              <span class="author-block"><a target="_blank">Zhenwei Zhang</a></span>
+                  <!-- <span class="author-block">
+                    <a target="_blank">Minjuan Zhu</a>,
                   </span>
+                  <span class="author-block">
+                    <a target="_blank">Zhenwei Zhang</a>,
+                  </span>
+                  <br>
+                  <span class="author-block">
+                    <a target="_blank">Xinyu Shen</a>,
+                  </span>
+                  <span class="author-block">
+                    <a target="_blank">Zhouhonyuan Hu</a>, 
+                  </span>
+                  <span class="author-block">
+                    <a target="_blank">Ke Cao</a>
+                  </span> -->
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block">Machine Intelligence Laboratory
+                      <br>College of Computer science, Sichuan University</span>
+                    <span class="eql-cntrb"><small><br><sup><span class="word-with-icon"><i class="fas fa-envelope"></i></span></sup>The corresponding author</small></span>
                   </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -83,19 +97,11 @@
                     </span>
 
                     <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
+
 
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -105,15 +111,7 @@
                 </span>
 
                 <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                
             </div>
           </div>
         </div>
@@ -130,99 +128,79 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+          <p class="custom-text">
+            Medical video generation models are expected to have a profound impact on the healthcare industry, including but not limited to medical education and training, surgical planning, and simulation.
+Current video diffusion models typically build on image diffusion architecture by incorporating temporal operations (such as 3D convolution and temporal attention). Although this approach is effective, its oversimplification 
+limits spatio-temporal performance and consumes substantial computational resources.
+To counter this, we propose <span style="color: red;">Med</span>ical <span style="color: red;">S</span>imulation Vide<span style="color: red;">o</span> Gene<span style="color: red;">ra</span>tor (MedSora), which incorporates three key elements:
+i) a video diffusion framework integrates the advantages of attention and Mamba, balancing low computational load with high-quality video generation,
+ii) an optical flow representation alignment method that implicitly enhances attention to inter-frame pixels,
+and iii) a video variational autoencoder (VAE) with frequency compensation addresses the information loss of medical features that occurs when transforming pixel space into latent features and then back to pixel frames.
+Extensive experiments and applications demonstrate that MedSora exhibits superior visual quality in generating medical videos, outperforming the most advanced baseline methods.
           </p>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 <!-- End paper abstract -->
 
-<!-- first img -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container img">
-       <div class="item img">
-        <!-- Your image here -->
-        <img src="static/images/img1.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle annotation">
-          MedSora is built upon the video Mamba diffusion model, the optical flow representation alignment module, and the fine-tuned video VAE. The Video Mamba diffusion model enables video generation under low resource load; the optical flow representation alignment module aims to produce smoother videos and accelerate model convergence; the fine-tuned video VAE addresses potential inconsistencies during the video reconstruction process.
-        </h2>
-      </div>
-    </div>
-  </div>
 
-<!-- <section class="section withimg hero is-light-content">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column content">
-        <div class="content has-text-justified">
-          <p>
-            MedSora is built upon the video Mamba diffusion model, the optical flow representation alignment module, and the fine-tuned video VAE. The Video Mamba diffusion model enables video generation under low resource load; the optical flow representation alignment module aims to produce smoother videos and accelerate model convergence; the fine-tuned video VAE addresses potential inconsistencies during the video reconstruction process.
-          </p>
+<!-- 
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered is-variable is-8">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="static/images/img1.png" alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <h2 class="custom-text2">
+              MedSora is built upon the video Mamba diffusion model, the optical flow representation alignment component, and the frequency compensation video VAE. The Video Mamba diffusion model enables video generation under low resource load; the optical flow representation alignment aims to produce smoother videos and accelerate model convergence; the frequency compensation video VAE addresses potential inconsistencies during the video reconstruction process.
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="static/images/img2.png" alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <h2 class="custom-text2">
+              We present the structural details of spatial Mamba and temporal Mamba, both of which adopt the scalar state-space model. Spatial Mamba employ a bidirectional spiral scanning scheme to emphasize spatial continuity, while temporal Mamba scan along the frame axis.
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <img src="static/images/img3.png" alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <h2 class="custom-text2">
+              The proposed frequency compensation video VAE. Current video diffusion models either rely on image VAEs for encoding and reconstructing videos, potentially omitting crucial temporal information and resulting in inadequate compression rates, or rely on video VAEs that lack training on medical videos. The proposed frequency compensation video VAE introduces frequency compensation modules with two distinct structures, built on the 3D causal VAE, ensuring temporal consistency while focusing on the structural information of medical videos, which is instrumental in identifying areas such as lesions and textures.
+            </h2>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section> -->
 
-</section>
-<!-- End first img -->
 
-<hr width="70%" size="2">
-
-
-<!-- second img -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container img">
-       <div class="item img">
-        <!-- Your image here -->
-        <img src="static/images/img2.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle annotation">
-          We present the structural details of spatial Mamba and temporal Mamba, both of which adopt the scalar state-space model. Spatial Mamba employ a bidirectional spiral scanning method to emphasize spatial continuity, while temporal Mamba scan along the frame axis.
-        </h2>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End second img -->
-
-<hr width="70%" size="2">
-
-<!-- third img -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container img">
-       <div class="item img">
-        <!-- Your image here -->
-        <img src="static/images/img3.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle annotation">
-          The proposed frequency compensation video VAE. Current video diffusion models either rely on image VAEs for encoding and reconstructing videos, potentially omitting crucial temporal information and resulting in inadequate compression rates, or  rely on video VAEs that lack training on medical videos. The proposed frequency compensation video VAE introduces frequency compensation modules with two distinct structures, built on the 3D causal VAE, ensuring temporal consistency while focusing on the structural information of medical videos, which is instrumental in identifying areas such as lesions and textures.
-        </h2>
-      </div>
-    </div>
-  </div>
-
-</section>
-<!-- End third img -->
-
-<!-- Paper content -->
-<!-- <section class="section hero is-light-content">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column content">
-        <div class="content has-text-justified">
-          <p>
-            We present the structural details of spatial Mamba and temporal Mamba, both of which adopt the scalar state-space model. Spatial Mamba employ a bidirectional spiral scanning method to emphasize spatial continuity, while temporal Mamba scan along the frame axis.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <hr width="70%" size="2">
 
@@ -230,19 +208,19 @@
  <section class="hero is-small">
   <div class="hero-body videos">
     <!-- <div class="container"> -->
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Colonoscopic</h2>
 
         <!-- fisrt line -->
        <div class="map-shell">
           <div class="item-text">
-              <p>image text</p>
+              <p>StyleGAN-V</p>
           </div>
 
         <div class="item-video">
            <!-- item item-video1 -->
           <video poster="" id="video1" autoplay controls muted loop>
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/stylegan_col/1.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -251,7 +229,7 @@
           <video poster="" id="video2" autoplay controls muted loop >
             <!-- height="10%" -->
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/stylegan_col/2.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -259,7 +237,7 @@
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/stylegan_col/3.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -267,7 +245,15 @@
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/stylegan_col/4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <!-- Your video file here -->
+            <source src="static/videos/stylegan_col/5.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -278,14 +264,14 @@
         <div class="map-shell">
 
           <div class="item-text">
-            <p>image text</p>
+            <p>LVDM</p>
           </div>
 
           <div class="item-video">
              <!-- item item-video1 -->
             <video poster="" id="video1" autoplay controls muted loop>
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/lvdm_col/1.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -294,7 +280,7 @@
             <video poster="" id="video2" autoplay controls muted loop >
               <!-- height="10%" -->
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/lvdm_col/2.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -302,7 +288,7 @@
           <div class="item-video">
             <video poster="" id="video3" autoplay controls muted loop >\
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/lvdm_col/3.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -310,7 +296,14 @@
           <div class="item-video">
             <video poster="" id="video3" autoplay controls muted loop >\
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/lvdm_col/6.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+          <div class="item-video">
+            <video poster="" id="video3" autoplay controls muted loop >\
+              <!-- Your video file here -->
+              <source src="static/videos/lvdm_col/5.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -321,14 +314,14 @@
        <div class="map-shell">
 
         <div class="item-text">
-          <p>image text</p>
+          <p>MoStGAN-V</p>
        </div>
 
         <div class="item-video">
            <!-- item item-video1 -->
           <video poster="" id="video1" autoplay controls muted loop>
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/mostgan_col/1.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -337,7 +330,7 @@
           <video poster="" id="video2" autoplay controls muted loop >
             <!-- height="10%" -->
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/mostgan_col/2.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -345,7 +338,7 @@
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/mostgan_col/3.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -353,7 +346,15 @@
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/mostgan_col/4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <!-- Your video file here -->
+            <source src="static/videos/mostgan_col/5.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -363,14 +364,14 @@
         <!-- fourth line -->
         <div class="map-shell">
           <div class="item-text">
-            <p>image text</p>
+            <p>Endora</p>
           </div>
 
           <div class="item-video">
              <!-- item item-video1 -->
             <video poster="" id="video1" autoplay controls muted loop>
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/endora_col/1.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -379,23 +380,32 @@
             <video poster="" id="video2" autoplay controls muted loop >
               <!-- height="10%" -->
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/endora_col/2.mp4"
               type="video/mp4">
             </video>
           </div>
   
-          <div class="item-video">
-            <video poster="" id="video3" autoplay controls muted loop >\
-              <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
-              type="video/mp4">
-            </video>
-          </div>
           
           <div class="item-video">
             <video poster="" id="video3" autoplay controls muted loop >\
               <!-- Your video file here -->
-              <source src="static/videos/test.mp4"
+              <source src="static/videos/endora_col/4.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item-video">
+            <video poster="" id="video3" autoplay controls muted loop >\
+              <!-- Your video file here -->
+              <source src="static/videos/endora_col/5.mp4"
+              type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item-video">
+            <video poster="" id="video3" autoplay controls muted loop >\
+              <!-- Your video file here -->
+              <source src="static/videos/endora_col/6.mp4"
               type="video/mp4">
             </video>
           </div>
@@ -406,44 +416,548 @@
        <div class="map-shell">
 
         <div class="item-text">
-          <p>a long long image text</p>
+          <p>MedSora</p>
        </div>
 
         <div class="item-video">
            <!-- item item-video1 -->
           <video poster="" id="video1" autoplay controls muted loop>
             <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/medsora_col/1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <!-- item item-video1 -->
+         <video poster="" id="video1" autoplay controls muted loop>
+           <!-- Your video file here -->
+           <source src="static/videos/medsora_col/2.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+
+     <div class="item-video">
+      <!-- item item-video1 -->
+     <video poster="" id="video1" autoplay controls muted loop>
+       <!-- Your video file here -->
+       <source src="static/videos/medsora_col/4.mp4"
+       type="video/mp4">
+     </video>
+   </div>
+
+
+
+ <!-- <div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_col/6.mp4"
+   type="video/mp4">
+ </video>
+ </div> -->
+
+
+ <div class="item-video">
+  <!-- item item-video1 -->
+ <video poster="" id="video1" autoplay controls muted loop>
+   <!-- Your video file here -->
+   <source src="static/videos/medsora_col/8.mp4"
+   type="video/mp4">
+ </video>
+ </div>
+
+
+
+ <div class="item-video">
+  <!-- item item-video1 -->
+ <video poster="" id="video1" autoplay controls muted loop>
+   <!-- Your video file here -->
+   <source src="static/videos/medsora_col/4_4.mp4"
+   type="video/mp4">
+ </video>
+ </div>
+
+       </div>
+       <!-- End fifth line -->
+
+
+
+
+       <hr width="100%" size="2">
+
+
+
+
+       <h2 class="title is-3">CholecTriplet</h2>
+
+       <!-- fisrt line -->
+      <div class="map-shell">
+         <div class="item-text">
+             <p>StyleGAN-V</p>
+         </div>
+
+       <div class="item-video">
+          <!-- item item-video1 -->
+         <video poster="" id="video1" autoplay controls muted loop>
+           <!-- Your video file here -->
+           <source src="static/videos/stylegan_cho/1.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video2" autoplay controls muted loop >
+           <!-- height="10%" -->
+           <!-- Your video file here -->
+           <source src="static/videos/stylegan_cho/2.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/stylegan_cho/3.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+       
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/stylegan_cho/4.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/stylegan_cho/5.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+      </div>
+      <!-- End second line -->
+
+       <!-- second line -->
+       <div class="map-shell">
+
+         <div class="item-text">
+           <p>LVDM</p>
+         </div>
+
+         <div class="item-video">
+            <!-- item item-video1 -->
+           <video poster="" id="video1" autoplay controls muted loop>
+             <!-- Your video file here -->
+             <source src="static/videos/lvdm_cho/1.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+ 
+         <div class="item-video">
+           <video poster="" id="video2" autoplay controls muted loop >
+             <!-- height="10%" -->
+             <!-- Your video file here -->
+             <source src="static/videos/lvdm_cho/2.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+ 
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/lvdm_cho/3.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+         
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/lvdm_cho/4.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/lvdm_cho/5.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+        </div>
+        <!-- End second line -->
+
+         <!-- third line -->
+      <div class="map-shell">
+
+       <div class="item-text">
+         <p>MoStGAN-V</p>
+      </div>
+
+       <div class="item-video">
+          <!-- item item-video1 -->
+         <video poster="" id="video1" autoplay controls muted loop>
+           <!-- Your video file here -->
+           <source src="static/videos/mostgan_cho/1.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video2" autoplay controls muted loop >
+           <!-- height="10%" -->
+           <!-- Your video file here -->
+           <source src="static/videos/mostgan_cho/2.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/mostgan_cho/3.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+       
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/mostgan_cho/4.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+       <div class="item-video">
+         <video poster="" id="video3" autoplay controls muted loop >\
+           <!-- Your video file here -->
+           <source src="static/videos/mostgan_cho/5.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+      </div>
+      <!-- End third line -->
+
+       <!-- fourth line -->
+       <div class="map-shell">
+         <div class="item-text">
+           <p>Endora</p>
+         </div>
+
+         <div class="item-video">
+            <!-- item item-video1 -->
+           <video poster="" id="video1" autoplay controls muted loop>
+             <!-- Your video file here -->
+             <source src="static/videos/endora_cho/1.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+ 
+         <div class="item-video">
+           <video poster="" id="video2" autoplay controls muted loop >
+             <!-- height="10%" -->
+             <!-- Your video file here -->
+             <source src="static/videos/endora_cho/2.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+ 
+         
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/endora_cho/4.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/endora_cho/5.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+
+         <div class="item-video">
+           <video poster="" id="video3" autoplay controls muted loop >\
+             <!-- Your video file here -->
+             <source src="static/videos/endora_cho/3.mp4"
+             type="video/mp4">
+           </video>
+         </div>
+        </div>
+        <!-- End fourth line -->
+
+         <!-- fifth line -->
+      <div class="map-shell">
+
+       <div class="item-text">
+         <p>MedSora</p>
+      </div>
+
+       <div class="item-video">
+          <!-- item item-video1 -->
+         <video poster="" id="video1" autoplay controls muted loop>
+           <!-- Your video file here -->
+           <source src="static/videos/medsora_cho/1.mp4"
+           type="video/mp4">
+         </video>
+       </div>
+
+
+
+
+  <div class="item-video">
+    <!-- item item-video1 -->
+   <video poster="" id="video1" autoplay controls muted loop>
+     <!-- Your video file here -->
+     <source src="static/videos/medsora_cho/5.mp4"
+     type="video/mp4">
+   </video>
+ </div>
+
+ <div class="item-video">
+  <!-- item item-video1 -->
+ <video poster="" id="video1" autoplay controls muted loop>
+   <!-- Your video file here -->
+   <source src="static/videos/medsora_cho/6.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+
+<div class="item-video">
+  <!-- item item-video1 -->
+ <video poster="" id="video1" autoplay controls muted loop>
+   <!-- Your video file here -->
+   <source src="static/videos/medsora_cho/8.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+
+
+<div class="item-video">
+  <!-- item item-video1 -->
+ <video poster="" id="video1" autoplay controls muted loop>
+   <!-- Your video file here -->
+   <source src="static/videos/medsora_cho/10.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+
+
+<!-- <div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_cho/2_2.mp4"
+   type="video/mp4">
+ </video>
+</div> -->
+
+
+
+<!-- <div class="item-video">
+<video poster="" id="video1" autoplay controls muted loop>
+  <source src="static/videos/medsora_col/6.mp4"
+  type="video/mp4">
+</video>
+</div> -->
+
+
+
+      </div>
+
+
+      <hr width="100%" size="2">
+
+      <!-- <h2 class="title is-3">Kvasir-Capsul</h2>
+
+
+      <div class="map-shell">
+
+        <div class="item-text">
+          <p>LVDM</p>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/lvdm_kva/1.mp4"
             type="video/mp4">
           </video>
         </div>
 
         <div class="item-video">
           <video poster="" id="video2" autoplay controls muted loop >
-            <!-- height="10%" -->
-            <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/lvdm_kva/2.mp4"
             type="video/mp4">
           </video>
         </div>
 
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
-            <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/lvdm_kva/3.mp4"
             type="video/mp4">
           </video>
         </div>
         
         <div class="item-video">
           <video poster="" id="video3" autoplay controls muted loop >\
-            <!-- Your video file here -->
-            <source src="static/videos/test.mp4"
+            <source src="static/videos/lvdm_kva/4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <source src="static/videos/lvdm_kva/5.mp4"
             type="video/mp4">
           </video>
         </div>
        </div>
-       <!-- End fifth line -->
+
+     <div class="map-shell">
+
+      <div class="item-text">
+        <p>MoStGAN-V</p>
+     </div>
+
+      <div class="item-video">
+        <video poster="" id="video1" autoplay controls muted loop>
+          <source src="static/videos/mostgan_kva/1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+      <div class="item-video">
+        <video poster="" id="video2" autoplay controls muted loop >
+          <source src="static/videos/mostgan_kva/2.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+      <div class="item-video">
+        <video poster="" id="video3" autoplay controls muted loop >\
+          <source src="static/videos/mostgan_kva/3.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      
+      <div class="item-video">
+        <video poster="" id="video3" autoplay controls muted loop >\
+          <source src="static/videos/mostgan_kva/4.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+
+      <div class="item-video">
+        <video poster="" id="video3" autoplay controls muted loop >\
+          <source src="static/videos/mostgan_kva/5.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+     </div>
+
+      <div class="map-shell">
+        <div class="item-text">
+          <p>Endora</p>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/endora_kva/1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video2" autoplay controls muted loop >
+            <source src="static/videos/endora_kva/2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <source src="static/videos/endora_kva/4.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <source src="static/videos/endora_kva/5.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item-video">
+          <video poster="" id="video3" autoplay controls muted loop >\
+            <source src="static/videos/endora_kva/3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+       </div>
+
+     <div class="map-shell">
+
+      <div class="item-text">
+        <p>MedSora</p>
+     </div>
+
+      <div class="item-video">
+       <video poster="" id="video1" autoplay controls muted loop>
+         <source src="static/videos/medsora_kva/2.mp4"
+         type="video/mp4">
+       </video>
+     </div>
+
+
+ <div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_kva/5.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+
+
+<div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_kva/11.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+<div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_kva/12.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+<div class="item-video">
+ <video poster="" id="video1" autoplay controls muted loop>
+   <source src="static/videos/medsora_kva/13.mp4"
+   type="video/mp4">
+ </video>
+</div>
+
+
+
+
+
+
+
+     </div> -->
+     <!-- End fifth line -->
+
+
+
 
     </div>
   <!-- </div> -->
@@ -453,7 +967,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -463,7 +977,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 

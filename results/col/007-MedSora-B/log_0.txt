@@ -1,0 +1,9 @@
+2024-11-03 at 23:12:25 | INFO | Experiment directory created at results/col/007-MedSora-B
+2024-11-03 at 23:12:38 | INFO | MedSora Parameters: 86,466,304
+2024-11-03 at 23:12:38 | INFO | Use half-precision training? False
+2024-11-03 at 23:12:38 | INFO | Use covariance to guide training? True
+2024-11-03 at 23:12:38 | INFO | Use local attention to guide training? True
+2024-11-03 at 23:12:38 | INFO | Use margin? True
+2024-11-03 at 23:12:38 | INFO | Dataset contains 36559.
+2024-11-03 at 23:12:38 | INFO | Training for 300 epochs...
+2024-11-03 at 23:12:38 | INFO | Beginning epoch 0...

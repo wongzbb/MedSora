@@ -1,0 +1,10 @@
+2024-11-03 at 23:24:53 | INFO | Experiment directory created at results/cho/000-MedSora-B
+2024-11-03 at 23:25:04 | INFO | MedSora Parameters: 86,466,304
+2024-11-03 at 23:25:04 | INFO | Use half-precision training? False
+2024-11-03 at 23:25:04 | INFO | Use covariance to guide training? True
+2024-11-03 at 23:25:04 | INFO | Use local attention to guide training? True
+2024-11-03 at 23:25:04 | INFO | Use margin? True
+2024-11-03 at 23:25:04 | INFO | Dataset contains 90455.
+2024-11-03 at 23:25:04 | INFO | Training for 300 epochs...
+2024-11-03 at 23:25:04 | INFO | Beginning epoch 0...
+2024-11-03 at 23:25:36 | INFO | (0.0%) (step=0000010) Train Loss: 0.9802, Noise Loss: 0.9802, Cov Loss_: 0.0027, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.31

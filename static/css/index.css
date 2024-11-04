@@ -215,3 +215,47 @@ body {
 .blank{
   margin:4rem;
 }
+
+.custom-text {
+  font-size: 17px;  
+  line-height: 1.4;   
+}
+
+.custom-text2 {
+  font-size: 15px;  
+  line-height: 1.5;   
+  text-align: justify; 
+  /* text-justify: inter-word; */
+}
+
+.annotation {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+.column img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.columns {
+  align-items: stretch; 
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content {
+  flex-grow: 1; 
+}
+
+
+.column {
+  padding: 0.2rem;
+}

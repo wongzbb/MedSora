@@ -1,0 +1,26 @@
+2024-11-03 at 23:28:42 | INFO | Experiment directory created at results/kva/000-MedSora-B
+2024-11-03 at 23:28:53 | INFO | MedSora Parameters: 86,466,304
+2024-11-03 at 23:28:53 | INFO | Use half-precision training? False
+2024-11-03 at 23:28:53 | INFO | Use covariance to guide training? True
+2024-11-03 at 23:28:53 | INFO | Use local attention to guide training? True
+2024-11-03 at 23:28:53 | INFO | Use margin? True
+2024-11-03 at 23:28:54 | INFO | Dataset contains 158932.
+2024-11-03 at 23:28:54 | INFO | Training for 300 epochs...
+2024-11-03 at 23:28:54 | INFO | Beginning epoch 0...
+2024-11-03 at 23:29:25 | INFO | (0.0%) (step=0000010) Train Loss: 0.9801, Noise Loss: 0.9801, Cov Loss_: 0.0027, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.32
+2024-11-03 at 23:29:36 | INFO | (0.0%) (step=0000020) Train Loss: 0.9363, Noise Loss: 0.9360, Cov Loss_: 0.0068, Cov Loss**: 0.0021, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:29:46 | INFO | (0.0%) (step=0000030) Train Loss: 0.8551, Noise Loss: 0.8540, Cov Loss_: 0.0141, Cov Loss**: 0.0112, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:29:57 | INFO | (0.0%) (step=0000040) Train Loss: 0.7140, Noise Loss: 0.7140, Cov Loss_: 0.0020, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:30:07 | INFO | (0.0%) (step=0000050) Train Loss: 0.6772, Noise Loss: 0.6769, Cov Loss_: 0.0069, Cov Loss**: 0.0032, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:30:18 | INFO | (0.0%) (step=0000060) Train Loss: 0.5142, Noise Loss: 0.5142, Cov Loss_: 0.0034, Cov Loss**: 0.0006, Gradient Norm: 1.0000, Train Steps/Sec: 0.93
+2024-11-03 at 23:30:28 | INFO | (0.0%) (step=0000070) Train Loss: 0.3322, Noise Loss: 0.3322, Cov Loss_: 0.0026, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:30:39 | INFO | (0.1%) (step=0000080) Train Loss: 0.2446, Noise Loss: 0.2446, Cov Loss_: 0.0034, Cov Loss**: 0.0005, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:30:49 | INFO | (0.1%) (step=0000090) Train Loss: 0.2186, Noise Loss: 0.2186, Cov Loss_: 0.0027, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:31:00 | INFO | (0.1%) (step=0000100) Train Loss: 0.2254, Noise Loss: 0.2254, Cov Loss_: 0.0031, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.93
+2024-11-03 at 23:31:11 | INFO | (0.1%) (step=0000110) Train Loss: 0.0873, Noise Loss: 0.0873, Cov Loss_: 0.0015, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:31:21 | INFO | (0.1%) (step=0000120) Train Loss: 0.2782, Noise Loss: 0.2780, Cov Loss_: 0.0063, Cov Loss**: 0.0023, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:31:32 | INFO | (0.1%) (step=0000130) Train Loss: 0.3075, Noise Loss: 0.3064, Cov Loss_: 0.0150, Cov Loss**: 0.0113, Gradient Norm: 1.0000, Train Steps/Sec: 0.96
+2024-11-03 at 23:31:42 | INFO | (0.1%) (step=0000140) Train Loss: 0.2760, Noise Loss: 0.2750, Cov Loss_: 0.0137, Cov Loss**: 0.0102, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:31:53 | INFO | (0.1%) (step=0000150) Train Loss: 0.2056, Noise Loss: 0.2055, Cov Loss_: 0.0042, Cov Loss**: 0.0009, Gradient Norm: 1.0000, Train Steps/Sec: 0.94
+2024-11-03 at 23:32:03 | INFO | (0.1%) (step=0000160) Train Loss: 0.1238, Noise Loss: 0.1238, Cov Loss_: 0.0027, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.95
+2024-11-03 at 23:32:14 | INFO | (0.1%) (step=0000170) Train Loss: 0.1110, Noise Loss: 0.1110, Cov Loss_: 0.0025, Cov Loss**: 0.0000, Gradient Norm: 1.0000, Train Steps/Sec: 0.98
