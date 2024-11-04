@@ -1,3 +1,0 @@
-2024-11-03 at 01:33:54 | INFO | VAE directory created at results/vae/col/003-vae
-2024-11-03 at 01:34:07 | INFO | Dataset contains 36559.
-2024-11-03 at 01:34:08 | INFO | Beginning epoch 0...
