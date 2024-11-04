@@ -137,3 +137,10 @@ bash scripts/sample_medsora_col.sh
 bash scripts/sample_medsora_cho.sh
 bash scripts/sample_medsora_cho.sh
 ```
+
+## 🛒TODO List
+- [X] Release code for MedSora
+- [X] Clean up the code for MedSora
+- [ ] Upload the code for calculating the metrics.
+- [ ] Upload the codes for training compared methods.
+- [ ] Upload the ckpt (will upload after publication).
