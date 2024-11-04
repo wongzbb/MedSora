@@ -3,9 +3,8 @@
 # MedSora: Optical Flow Representation Alignment Mamba Diffusion Model for Medical Video Generation
   [Zhenbin Wang](https://github.com/wongzbb), Lei Zhang<sup>✉</sup>, [Lituan Wang](https://github.com/LTWangSCU), [Minjuan Zhu](https://github.com/zhuminjuan), [Zhenwei Zhang](https://github.com/Zhangzw-99) 
   
-  </br>
-  [![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b.svg)](https://github.com/wongzbb)
-  </br>
+  [![arXiv](https://img.shields.io/badge/arXiv-xxxx.xxxxx-b31b1b.svg)](https://github.com/wongzbb/MedSora)
+   [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://github.com/wongzbb/MedSora)  </br>
 </div>
 
 -------------------------------------------
